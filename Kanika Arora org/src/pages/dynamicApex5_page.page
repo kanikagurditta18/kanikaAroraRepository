@@ -1,0 +1,50 @@
+<apex:page controller="dynamicApex5">
+ <apex:form id="theForm">
+     <apex:pageBlock title="Select Object">
+        
+
+                 <apex:outputLabel value="Select an object:"></apex:outputLabel>
+                 <apex:selectList value="{!objectName}" size="1" multiselect="false">
+                     <apex:selectOptions value="{!selectedobject}">
+                       
+                     </apex:selectOptions>
+                     <apex:actionSupport action="{!function}" event="onchange" reRender="fieldsPanel"/>  
+                 </apex:selectList>
+             </apex:pageBlock>
+             
+              <apex:pageBlock title="Select Fields">
+             <apex:outputPanel id="fieldsPanel">
+                 <apex:outputLabel value="Select Fields:"> </apex:outputLabel>
+                 <apex:selectList value="{!fields}" multiselect="true" size="3" >
+                     <apex:selectOptions value="{!lsps}">
+                     
+                     </apex:selectOptions>
+                 </apex:selectList>
+                 </apex:outputPanel>
+                         </apex:pageBlock>
+             
+        <apex:pageBlock >
+      <apex:outputlabel value="Maximum # Records To Display"/>&nbsp;&nbsp;
+           <apex:selectList value="{!limitselect}" size="1" multiselect="false">
+
+           <apex:selectoptions value="{!chooselimit}"></apex:selectoptions>
+         </apex:selectlist>
+           <apex:outputlabel value="Set Order As"/>&nbsp;&nbsp;
+         <apex:selectRadio value="{!orderselect}">
+            <apex:selectOptions value="{!chooseorder}"/>
+            </apex:selectRadio>
+           </apex:pageBlock>
+           <apex:pageblock >
+            <div align="Center">
+                        <apex:outputPanel >
+                            <apex:commandButton action="{!execute}" value="Execute Query" id="btn1" />
+                            </apex:outputPanel>
+                            </div></apex:pageblock>
+                            
+                            <apex:pageblock >
+       <apex:outputLabel value="{!querystr}"> </apex:outputLabel>
+     
+     </apex:pageblock>
+     
+ </apex:form>
+</apex:page>

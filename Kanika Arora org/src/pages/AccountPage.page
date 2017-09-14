@@ -1,0 +1,16 @@
+<apex:page standardController="Account"  showHeader="true" sidebar="true">
+   <apex:form >
+     <apex:pageBlock title="list" id="Accounts_list">
+         <apex:pageBlockTable title="Account List" value="{!Account}" var="c" width="100%">
+
+              <apex:column value="{!c.Name}"/>
+              <apex:column value="{!c.Phone}"/>
+              <apex:column value="{!c.Description}"/>
+              <apex:column value="{!c.BillingCity}"/>
+              <apex:column value="{!c.BillingStreet}"/>
+              <apex:column value="{!c.BillingState}"/>
+
+         </apex:pageBlockTable>
+    </apex:pageBlock>
+ </apex:form>
+</apex:page>
